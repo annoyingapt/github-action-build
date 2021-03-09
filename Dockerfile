@@ -10,6 +10,10 @@ LABEL repository="http://github.com/skx/github-action-build"
 LABEL homepage="http://github.com/skx/github-action-build"
 LABEL maintainer="Steve Kemp <steve@steve.fi>"
 
+RUN apt-get update && \
+    apt-get install --yes python3 && \
+    apt-get clean
+
 COPY build /usr/local/bin/build
 
 ENTRYPOINT ["/usr/local/bin/build"]
